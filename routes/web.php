@@ -4,6 +4,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\SocialController;
+use App\Http\Controllers\PasswordController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -47,11 +48,17 @@ Route::get('/test', function () {
 });
 
 
-Route::get('/login/facebook', [SocialController::class, 'facebookRedirect']);
 
-Route::get('login/facebook/redirect', [SocialController::class, 'handleFacebookProviderCallback']);
+Route::get('/login/facebook', [SocialController::class, 'facebookRedirect']);
+Route::get('/login/facebook/redirect', [SocialController::class, 'handleFacebookProviderCallback']);
 
 
 Route::get('/login/google', [SocialController::class, 'googleRedirect']);
+Route::get('/login/google/redirect', [SocialController::class, 'handleGoogleProviderCallback']);
 
-Route::get('login/google/redirect', [SocialController::class, 'handleGoogleProviderCallback']);
+
+Route::get('/login/identify', [PasswordController::class, 'createIdentify']);
+Route::post('/login/identify', [PasswordController::class, 'identifyUser']);
+
+Route::get('/recover/password', [PasswordController::class, 'createReset']);
+Route::post('/recover/password', [PasswordController::class, 'storeReset']);

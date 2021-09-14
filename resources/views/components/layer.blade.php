@@ -8,7 +8,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Starter</title>
+
+    <title>Bug Tracker</title>
+
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -24,6 +26,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="{{asset('/bower_components/admin-lte/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css')}}">
     <!-- Toastr -->
     <link rel="stylesheet" href="{{asset('/bower_components/admin-lte/plugins/toastr/toastr.min.css')}}">
+    <style>
+        .text-button {
+            border: none;
+            background-color: inherit;
+            padding: 14px 28px;
+            font-size: 16px;
+            cursor: pointer;
+            display: inline-block;
+        }
+    </style>
 
 </head>
 
@@ -43,6 +55,44 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('/bower_components/admin-lte/dist/js/demo.js')}}"></script>
 <!-- Page specific script -->
+
+
+<script>
+    let $session = "{{Session::get('status')}}";
+    const status = new Map([
+        ['failed_social_login', 'Something went wrong or You have rejected the app!'],
+        ['failed_login', 'Your provided credentials could not be verified.'],
+        ['goodbye', 'See ya later!'],
+
+    ]);
+
+    $(function() {
+        var Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+        });
+
+        if ($session == 'failed_login') {
+            $('.toastrDefaultError').ready(function() {
+                toastr.error(status.get('failed_login'))
+            });
+        } else if ($session == 'failed_social_login') {
+            $('.toastrDefaultError').ready(function() {
+                toastr.error(status.get('failed_social_login'))
+            });
+        } else if (($session == 'goodbye')) {
+            $('.swalDefaultSuccess').ready(function() {
+                Toast.fire({
+                    icon: 'success',
+                    title: status.get('goodbye')
+                })
+            });
+
+        }
+    });
+</script>
 
 
 </body>
