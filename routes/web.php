@@ -60,5 +60,5 @@ Route::get('/login/google/redirect', [SocialController::class, 'handleGoogleProv
 Route::get('/login/identify', [PasswordController::class, 'createIdentify']);
 Route::post('/login/identify', [PasswordController::class, 'identifyUser']);
 
-Route::get('/recover/password', [PasswordController::class, 'createReset']);
-Route::post('/recover/password', [PasswordController::class, 'storeReset']);
+Route::post('/recover/code', [PasswordController::class, 'createRecoverPassword']);
+// Route::post('/recover/code', [PasswordController::class, 'storeRecoverPassword']);

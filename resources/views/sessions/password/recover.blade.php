@@ -20,7 +20,7 @@
                                             <img src="{{asset('/bower_components/admin-lte/dist/img/user1-128x128.jpg')}}" alt="User Avatar" class="img-size-50 mr-3 img-circle">
                                         </div>
                                         <div class="mt-2 mb-2">
-                                            {{$user->name}}
+                                            {{$user->name}} elwan
                                             <br>
                                             <p class="text-secondary">
                                                 Bug tracker user
@@ -31,7 +31,7 @@
                                 </tr>
                                 <tr>
                                     <div class="form-check ">
-                                        <input name="contact" class="form-check-input " type="radio" id="email" value="email">
+                                        <input name="contact" class="form-check-input " type="radio" id="email">
                                         <label class="form-check-label" for="email">
                                             Send code via email
                                             <br>
@@ -39,16 +39,13 @@
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input name="contact" class="form-check-input" type="radio" id="number" value="number">
+                                        <input name="contact" class="form-check-input" type="radio" id="number">
                                         <label class="form-check-label" for="number">
                                             Send code via SMS
                                             <br>
                                             +********33
                                         </label>
                                     </div>
-
-                                    <input name="id" type="hidden" value="{{$user->id}}">
-
                                 </tr>
 
                             </tbody>

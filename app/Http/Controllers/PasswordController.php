@@ -25,15 +25,14 @@ class PasswordController extends Controller
         return view('sessions.password.reset', ['user' => $authUser]);
     }
 
-    public function createReset(Request $request)
+    public function createRecoverPassword(Request $request)
     {
-        return view('sessions.password.reset');
-        // return $request()->all();
-
-
+        $id = $request->id;
+        $user = User::where('id', $id)->first();
+        return view('sessions.password.code-recover', ['user' => $user]);
     }
 
-    public function storeReset(Request $request)
+    public function storeRecoverPassword(Request $request)
     {
         // return $request->all();
     }
