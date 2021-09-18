@@ -43,8 +43,11 @@ class SocialController extends Controller
 
     public function handleGoogleProviderCallback()
     {
+
         $user = Socialite::driver('google')->user();
         $authUser = $this->findOrCreateGoogleUser($user);
+        // dd($authUser->name);
+
         if (!$authUser) {
             return redirect('/login')->with('status', 'failed_social_login');
         }

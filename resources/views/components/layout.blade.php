@@ -11,7 +11,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <title>AdminLTE 3 | Starter</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="{{asset('/bower_components/admin-lte/plugins/fontawesome-free/css/all.min.css')}}">
     <!-- Theme style -->
@@ -24,6 +26,49 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Toastr -->
     <link rel="stylesheet" href="{{asset('/bower_components/admin-lte/plugins/toastr/toastr.min.css')}}">
 
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .avatar {
+            vertical-align: middle;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+        }
+
+
+        .dropdown-item {
+            margin-left: 5px;
+        }
+
+        .dot {
+            height: 8px;
+            width: 8px;
+            background-color: purple;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 8px;
+        }
+
+        .avatar img {
+            border-radius: 50%;
+            position: relative;
+            left: -5px;
+            margin-left: -14px;
+        }
+
+        .avatars {
+            direction: rtl;
+            /* This is to get the stack with left on top */
+            text-align: left;
+            /* Now need to explitly align left */
+            padding-left: 20px;
+            /* Same value as the negative margin */
+        }
+    </style>
 </head>
 
 @auth
@@ -35,137 +80,29 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
             <!-- Left navbar links -->
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-                </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="index3.html" class="nav-link">Dashboard</a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Bugs</a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="index3.html" class="nav-link">Milestone</a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Forum</a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Timesheet</a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Reports</a>
+                    <a href="/index" class="nav-link active">
+                        <h5>Home</h5>
+                    </a>
                 </li>
             </ul>
-
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
-                <!-- Messages Dropdown Menu -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link" data-toggle="dropdown" href="#">
-                        <i class="far fa-comments"></i>
-                        <span class="badge badge-danger navbar-badge">3</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <a href="#" class="dropdown-item">
-                            <!-- Message Start -->
-                            <div class="media">
-                                <img src="{{asset('/bower_components/admin-lte/dist/img/user1-128x128.jpg')}}" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-
-                                <div class="media-body">
-                                    <h3 class="dropdown-item-title">
-                                        Brad Diesel
-                                        <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                                    </h3>
-                                    <p class="text-sm">Call me whenever you can...</p>
-                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                                </div>
-                            </div>
-                            <!-- Message End -->
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <!-- Message Start -->
-                            <div class="media">
-                                <img src="{{asset('/bower_components/admin-lte/dist/img/user8-128x128.jpg')}}" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                                <div class="media-body">
-                                    <h3 class="dropdown-item-title">
-                                        John Pierce
-                                        <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                                    </h3>
-                                    <p class="text-sm">I got your message bro</p>
-                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                                </div>
-                            </div>
-                            <!-- Message End -->
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <!-- Message Start -->
-                            <div class="media">
-                                <img src="{{asset('/bower_components/admin-lte/dist/img/user3-128x128.jpg')}}" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                                <div class="media-body">
-                                    <h3 class="dropdown-item-title">
-                                        Nora Silvester
-                                        <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                                    </h3>
-                                    <p class="text-sm">The subject goes here</p>
-                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                                </div>
-                            </div>
-                            <!-- Message End -->
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-                    </div>
-                </li>
-                <!-- Notifications Dropdown Menu -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link" data-toggle="dropdown" href="#">
-                        <i class="far fa-bell"></i>
-                        <span class="badge badge-warning navbar-badge">15</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <span class="dropdown-header">15 Notifications</span>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-envelope mr-2"></i> 4 new messages
-                            <span class="float-right text-muted text-sm">3 mins</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-users mr-2"></i> 8 friend requests
-                            <span class="float-right text-muted text-sm">12 hours</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-file mr-2"></i> 3 new reports
-                            <span class="float-right text-muted text-sm">2 days</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-                    </div>
-                </li>
                 <li class="nav-item">
-                    <!-- Sidebar user panel (optional) -->
-                    <div class="user-panel  d-flex">
-                        <div class="image">
-                            <a data-widget="control-sidebar" data-slide="true" href="#" role="button">
-                                <img src="{{asset('/bower_components/admin-lte/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-1" alt="User Image">
-                            </a>
-
-                        </div>
-
-                    </div>
+                    <button type="button" class="btn btn-light mr-2">Share</button>
+                    <button type="button" class="btn btn-primary">Create</button>
                 </li>
             </ul>
+
         </nav>
+
+
         <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-success elevation-4">
             <!-- Brand Logo -->
-            <a href="index3.html" class="brand-link">
+            <a href="/index" class="brand-link">
                 <i class="fas fa-bug pl-3" style="opacity: .8"></i>
                 <!-- <img src="{{asset('/bower_components/admin-lte/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8"> -->
                 <span class="brand-text font-weight-light">Bug Tracker</span>
@@ -173,15 +110,55 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
             <!-- Sidebar -->
             <div class="sidebar">
-
-
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+                        <li class="nav-item mt-3 mb-3">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm">
+                                        <img src="{{asset('/bower_components/admin-lte/dist/img/user2-160x160.jpg')}}" class="avatar img-circle elevation-1" alt="User Image">
+                                    </div>
+                                    <div class="col-sm">
+                                        <span class="text-light">{{auth()->user()->name}}</span><br>
+                                        <span class="text-secondary">{{auth()->user()->email}}</span>
+                                    </div>
+                                    <div class="col-sm d-flex justify-content-center">
+                                        <div class="dropdown">
+                                            <a class="btn dropdown-toggle" data-toggle="dropdown"></a>
+                                            <ul class="dropdown-menu">
+                                                <li class="dropdown-item"><a href="/profile">Profile</a></li>
+                                                <form action="/logout" method="post">
+                                                    @csrf
+                                                    <li class="dropdown-item"><button type="submit" class="btn btn-danger">Logout</button>
+                                                    </li>
+                                                </form>
+                                            </ul>
+                                        </div>
+                                        <ul class="nav nav-treeview">
+                                            <li class="nav-item">
+                                                <a href="pages/layout/top-nav.html" class="nav-link">
+                                                    <i class="far fa-circle nav-icon"></i>
+                                                    <p>Top Navigation</p>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                                                    <i class="far fa-circle nav-icon"></i>
+                                                    <p>Top Navigation + Sidebar</p>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
                         <li class="nav-item menu-open">
+
                             <ul class="nav nav-treeview">
+
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
                                         <i class="fas fa-home nav-icon"></i>
@@ -190,27 +167,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </li>
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
-                                        <i class="fas fa-newspaper nav-icon"></i>
-                                        <p>Feed</p>
+                                        <i class="fas fa-tasks  nav-icon"></i>
+                                        <p>My Tasks</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
-                                        <i class="fas fa-comment-dots nav-icon"></i>
-                                        <p>Discuss</p>
+                                        <i class="far fa-clock nav-icon"></i>
+                                        <p>Recent</p>
                                     </a>
                                 </li>
+                                <li class="nav-header">Teams</li>
+
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
-                                <p>
-                                    Simple Link
-                                    <span class="right badge badge-danger">New</span>
-                                </p>
-                            </a>
-                        </li>
+
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -221,46 +192,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             {{$slot}}
-            <!-- Content Header (Page header) -->
-            <!-- <div class="content-header">
-                <div class="container-fluid">
-                    <div class="row mb-2">
-                        <div class="col-sm-6">
-                            <h1 class="m-0">Starter Page</h1>
-                        </div>
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Starter Page</li>
-                            </ol>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-            <!-- /.content-header -->
 
-            <!-- Main content -->
-            <div class="content">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-6">
-                        </div>
-                        <div class="col-lg-6">
-
-
-                        </div>
-                        <!-- /.col-md-6 -->
-                    </div>
-                    <!-- /.row -->
-                </div><!-- /.container-fluid -->
-            </div>
-            <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
 
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-light">
-            <!-- Control sidebar content goes here -->
             <div class="p-3">
                 @if(auth()->user())
                 <h5>{{auth()->user()->name}}</h5>
@@ -278,11 +215,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- REQUIRED SCRIPTS -->
 
-
-    <!-- Bootstrap 4 -->
-    <script src="{{asset('/bower_components/admin-lte/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <!-- jQuery -->
     <script src=" {{asset('/bower_components/admin-lte/plugins/jquery/jquery.min.js')}}"></script>
+    <!-- Bootstrap 4 -->
+    <script src="{{asset('/bower_components/admin-lte/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <!-- AdminLTE App -->
     <script src="{{asset('/bower_components/admin-lte/dist/js/adminlte.min.js')}}"></script>
     <!-- SweetAlert2 -->
@@ -292,7 +228,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- AdminLTE for demo purposes -->
     <script src="{{asset('/bower_components/admin-lte/dist/js/demo.js')}}"></script>
     <!-- Page specific script -->
-
 </body>
 @endauth
 
