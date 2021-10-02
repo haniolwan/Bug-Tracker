@@ -12,4 +12,8 @@ class ProjectController extends Controller
         $projects = Project::all();
         return view('allprojects', ['projects' => $projects]);
     }
+    public function store(Request $request)
+    {
+        return $request->all();
+    }
 }

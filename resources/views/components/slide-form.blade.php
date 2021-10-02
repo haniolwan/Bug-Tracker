@@ -1,12 +1,13 @@
-<section class="toggle-form" style="overflow: auto;">
-    <div class="formwrap">
+<section class="toggle-form">
+    <div class="formwrap" style="overflow: auto;">
         <div class="nav-slider">
             <div class="pt-2">
                 <p class="text-dark h5"><a href=""><i class="fas fa-th m-2 fa-xs"></a></i></i>New Project</p>
             </div>
         </div>
         <div class="px-4">
-            <form action="#" method="post" role="form" data-toggle="validator">
+            <form action="{{asset('addproject')}}" method="post" role="form" data-toggle="validator">
+                @csrf
                 <!-- Project Title -->
                 <div class="form-group mt-2">
                     <label for="fname" class="control-label">Project Title * <a href=""> <i class="fas fa-info-circle"></i></a></label>
@@ -16,13 +17,7 @@
                 <div class="form-group">
                     <label>Owner</label>
                     <select class="form-control" style="width: 100%;">
-                        <option selected="selected">Alabama</option>
-                        <option>Alaska</option>
-                        <option>California</option>
-                        <option>Delaware</option>
-                        <option>Tennessee</option>
-                        <option>Texas</option>
-                        <option>Washington</option>
+                        <option selected="selected">Heenoow</option>
                     </select>
                 </div>
                 <div class="row">
@@ -49,7 +44,7 @@
 
                 <div class="form-group">
                     <label>Project Overview</label>
-                    <textarea class="form-control" rows="3" placeholder=""></textarea>
+                    <textarea name="desc" class="form-control" rows="3" placeholder=""></textarea>
                 </div>
 
                 <div class="row">
@@ -57,14 +52,14 @@
                         <label>Project access</label>
                         <div class="ml-4">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="radio1">
+                                <input class="form-check-input" type="radio" name="access" value="private">
                                 <label class="form-check-label">Private</label>
                                 <br>
                                 <small>Only project users can view and access this project.
                                 </small>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="radio1" checked>
+                                <input class="form-check-input" type="radio" name="access" checked value="public">
                                 <label class="form-check-label">Public</label>
                                 <br>
                                 <small>Portal users can only view, follow, and comment whereas, project users will have complete access.</small>
@@ -73,12 +68,11 @@
 
                     </div>
                 </div>
-                <div class="row ml-2">
+                <div class="row ml-2 ">
                     <p class="mr-1"><button type="submit" class="btn orange w-100">Add</button></p>
                     <p class="ml-1"><button id="close-modal" class="btn cancel w-100">cancel</button></p>
                 </div>
             </form>
-
         </div>
     </div>
 </section>

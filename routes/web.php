@@ -30,6 +30,8 @@ Route::post('/register/facebook/redirect', [RegisterController::class, 'facebook
 
 
 Route::get('/allprojects', [ProjectController::class, 'projects']);
+Route::post('addproject', [ProjectController::class, 'store']);
+
 
 
 // Route::post('redirectToProfile', [UserController::class, 'redirectToProfile']);

@@ -8,7 +8,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Starter</title>
+    <title>Bug Tracker</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -102,12 +102,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
             cursor: pointer;
         }
 
+        /* 
         a,
         label,
         p {
             color: #1d1f1d;
             ;
-        }
+        } */
 
         label {
             font-weight: normal;
