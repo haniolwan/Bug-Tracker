@@ -2,9 +2,11 @@
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\BugController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\SocialController;
 use App\Http\Controllers\PasswordController;
+use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('index', [BugController::class, 'index']);
 Route::get('/register', [RegisterController::class, 'create'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store'])->middleware('guest');
 
@@ -26,9 +29,15 @@ Route::post('/register/facebook/redirect', [RegisterController::class, 'facebook
 
 
 
-Route::get('/index', function () {
-    return view('index');
-});
+Route::get('/allprojects', [ProjectController::class, 'projects']);
+
+
+// Route::post('redirectToProfile', [UserController::class, 'redirectToProfile']);
+Route::post('/profile', [UserController::class, 'profile']);
+
+Route::post('/uploadavatar', [UserController::class, 'uploadAvatar']);
+
+
 
 Route::post('/logout', [SessionController::class, 'destroy']);
 
@@ -37,6 +46,10 @@ Route::post('/logout', [SessionController::class, 'destroy']);
 Route::get('/layout', function () {
     return view('components.layout');
 });
+Route::get('/slide', function () {
+    return view('components.slide-form');
+});
+
 
 Route::get('/login', [SessionController::class, 'create'])->middleware('guest')->name('login');
 Route::post('/login', [SessionController::class, 'store'])->middleware('guest');

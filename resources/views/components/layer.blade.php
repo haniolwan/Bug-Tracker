@@ -26,6 +26,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="{{asset('/bower_components/admin-lte/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css')}}">
     <!-- Toastr -->
     <link rel="stylesheet" href="{{asset('/bower_components/admin-lte/plugins/toastr/toastr.min.css')}}">
+    <!-- daterange picker -->
+    <link rel="stylesheet" href="{{asset('plugins/daterangepicker/daterangepicker.css')}}">
+
     <style>
         .text-button {
             border: none;
@@ -34,6 +37,139 @@ scratch. This page gets rid of all links and provides the needed markup only.
             font-size: 16px;
             cursor: pointer;
             display: inline-block;
+        }
+
+        .btn {
+            cursor: pointer;
+        }
+
+        .icon-close {
+            right: 2rem;
+            top: 1.8rem;
+            transition: right .6s ease-in-out;
+            cursor: pointer;
+        }
+
+        a,
+        label,
+        p {
+            color: #1d1f1d;
+            ;
+        }
+
+        label {
+            font-weight: normal;
+        }
+
+        label:not(.form-check-label):not(.custom-file-label) {
+            font-weight: normal;
+        }
+
+        .has-error .help-block {
+            color: white;
+            text-align: center;
+        }
+
+        /* .toggle-form {
+            right: 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            transition: right .6s ease-in-out;
+        } */
+
+        .toggle-form.active {
+            right: 0;
+        }
+
+
+
+        .orange {
+            background-color: #ff910e;
+            border-color: #ff910e;
+            color: #fff;
+            /* padding: .5rem 2rem; */
+            font-size: 1rem;
+            line-height: 1.5;
+            border-radius: 2rem;
+        }
+
+        .cancel {
+            background-color: #fff;
+            border-color: #ff910e;
+            /* padding: .5rem 2rem; */
+            font-size: 1rem;
+            line-height: 1.5;
+            border-radius: 2rem;
+
+        }
+
+        .btn.orange:hover {
+            background-color: #da7600;
+            border-color: #da7600;
+            color: #fff;
+        }
+
+        .form-control {
+            display: block;
+            width: 100%;
+            padding: .5rem .75rem;
+            font-size: .9rem;
+            line-height: 1.25;
+            color: #495057;
+            background-color: #fff;
+            background-image: none;
+            background-clip: padding-box;
+            border: 1px solid rgba(0, 0, 0, .15);
+            border-radius: 0.2rem;
+            transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+        }
+
+        .formwrap {
+            background-color: #fff;
+            width: 700px;
+            height: 100%;
+            float: right;
+            box-shadow: -1px 0px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .formwrap form input,
+        .formwrap form input:focus {
+            background-color: transparent;
+            border-color: #989c99;
+            color: black;
+            margin-right: 10px;
+        }
+
+        .mid-col {
+            max-width: 100%;
+            flex: 0 0 100%;
+            -ms-flex: 0 0 100%;
+        }
+
+        .form-control {
+            background-color: transparent;
+            border-color: #989c99;
+            color: #fff;
+            margin-right: 10px;
+        }
+
+        select.form-control:not([size]):not([multiple]) {
+            background-color: transparent;
+            border-color: #989c99;
+            color: black;
+        }
+
+        option {
+            background-color: #fff;
+            color: #1f2124;
+        }
+
+        .nav-slider {
+            height: 50px;
+            background-color: #FAFAFA;
         }
     </style>
 
@@ -66,6 +202,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     ]);
 
+    $(document).ready(function() {
+        $('#reservationdate').on('click', function() {
+            $('#reservationdate').datetimepicker({
+                format: 'L'
+            });
+        });
+    });
+
     $(function() {
         var Toast = Swal.mixin({
             toast: true,
@@ -91,6 +235,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             });
 
         }
+
     });
 </script>
 

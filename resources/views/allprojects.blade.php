@@ -101,10 +101,10 @@
                             </div>
                         </div>
                         <div class="card-body" style="height:500px ">
-                            @foreach($bugs as $bug)
+                            @foreach($projects as $project)
                             <div class="row mb-3">
                                 <div class="col-sm"><span class="dot"></span>
-                                    {{$bug->name}} <span class="text-secondary text-sm">in NothingWorks</span></span>
+                                    {{$project->name}} <span class="text-secondary text-sm">in NothingWorks</span></span>
                                 </div>
                                 <div class="col-sm">
                                     <div class="avatars">
@@ -122,11 +122,13 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="col-sm-3 text-secondary">{{$bug->updated_at}}</div>
+                                <div class="col-sm-3 text-secondary">{{$project->updated_at}}</div>
                                 <div class="col-sm-.05 text-secondary"><a class="text-secondary" href=""><i class="fas fa-ellipsis-v"></a></i></div>
                             </div>
                             @endforeach
-
+                            <div id="createProject" class="btn float">
+                                <i class="fa fa-plus my-float"></i>
+                            </div>
                         </div>
                     </div>
                     <!-- ./card-body -->
@@ -135,11 +137,15 @@
                 <!-- /.card -->
             </div>
             <!-- /.col -->
+
         </div>
         <!-- /.row -->
 
     </section>
     <!-- /.content -->
+
+    <x-slide-form />
+
 </x-layout>
 
 <script>

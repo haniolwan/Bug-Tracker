@@ -68,6 +68,29 @@ scratch. This page gets rid of all links and provides the needed markup only.
             padding-left: 20px;
             /* Same value as the negative margin */
         }
+
+        .float {
+            position: fixed;
+            width: 60px;
+            max-height: 120px;
+            bottom: 40px;
+            right: 40px;
+            background-color: orangered;
+            color: #FFF;
+            border-radius: 100px;
+            text-align: center;
+            box-shadow: 2px 2px 3px #999;
+        }
+
+        .toggle-form {
+            right: 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            transition: right .6s ease-in-out;
+        }
     </style>
 </head>
 
@@ -129,7 +152,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <div class="dropdown">
                                             <a class="btn dropdown-toggle" data-toggle="dropdown"></a>
                                             <ul class="dropdown-menu">
-                                                <li class="dropdown-item"><a href="/profile">Profile</a></li>
+                                                <form id="profile-form" action="/profile" method="post">
+                                                    @csrf
+                                                    <li class="nav-item">
+                                                        <a href="#" class="nav-link" onclick="submitProfile()">
+                                                            <p>Profile</p>
+                                                        </a>
+                                                        <input type="hidden" name="id" value="{{auth()->user()->id}}">
+                                                    </li>
+                                                </form>
                                                 <form action="/logout" method="post">
                                                     @csrf
                                                     <li class="dropdown-item"><button type="submit" class="btn btn-danger">Logout</button>
@@ -172,12 +203,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     </a>
                                 </li>
                                 <li class="nav-item">
+                                    <a href="/projects" class="nav-link">
+                                        <i class="fas fa-briefcase  nav-icon"></i>
+                                        <p>Projects</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
                                     <a href="#" class="nav-link">
                                         <i class="far fa-clock nav-icon"></i>
                                         <p>Recent</p>
                                     </a>
                                 </li>
-                                <li class="nav-header">Teams</li>
+                                <li class="nav-header">Recent Projects</li>
 
                             </ul>
                         </li>
@@ -228,6 +265,34 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- AdminLTE for demo purposes -->
     <script src="{{asset('/bower_components/admin-lte/dist/js/demo.js')}}"></script>
     <!-- Page specific script -->
+
+    <script>
+        function submitProfile() {
+            document.getElementById("profile-form").submit();
+        }
+
+        $(document).ready(function() {
+            $(".toggle-form").css("display", "none");
+
+        });
+
+        function open_project_modal() {
+            $(".toggle-form").css("display", "block");
+        }
+
+        function close_project_modal() {
+            $(".toggle-form").css("display", "none");
+        }
+
+        $('#createProject').on('click', function() {
+            open_project_modal();
+        });
+
+        $('#close-modal').on('click', function() {
+            // alert('Klicked bitch');
+            $(".toggle-form").css("display", "none");
+        });
+    </script>
 </body>
 @endauth
 
