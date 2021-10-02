@@ -144,6 +144,8 @@
     </section>
     <!-- /.content -->
 
+
+    <!-- ADD PROJECT FORM -->
     <x-slide-form />
 
 </x-layout>
@@ -164,4 +166,10 @@
             });
         }
     });
+
+
+    $('.toggle-form').dblclick(function(e) {
+        $('.toggle-form').css('display', 'none');
+        $('#createProject').css('display', 'block');
+    })
 </script>
