@@ -1,4 +1,4 @@
-<section class="toggle-form" style="overflow: scroll;">
+<section class="toggle-form" style="overflow: auto;">
     <div class="formwrap">
         <div class="nav-slider">
             <div class="pt-2">
