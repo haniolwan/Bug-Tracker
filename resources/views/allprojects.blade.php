@@ -146,30 +146,75 @@
 
 
     <!-- ADD PROJECT FORM -->
-    <x-slide-form />
+    <x-bug-menu id="bug-menu" />
+    <x-project-menu id="project-menu" />
 
 </x-layout>
 
-<script>
-    let success = "{{Session::get('status')}}";
-    $(function() {
-        var Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 1000
-        });
 
-        if (success) {
-            $('.toastrDefaultSuccess').ready(function() {
-                toastr.success(success)
-            });
+
+<script>
+    // var container = $('.toggle-form');
+    // console.log(container)
+    // $(document).mouseup(function(e) {
+    //     var container = $('.toggle-form');
+
+    //     // if the target of the click isn't the container nor a descendant of the container
+    //     if (!container.is(e.target) && container.has(e.target).length === 0) {
+    //         container.hide();
+    //         console.log('Klicked here')
+    //     }
+    // });
+    var container = document.getElementsByClassName('toggle-form');
+
+    console.log(container.item(0))
+
+    window.addEventListener('mouseup', function(event) {
+        var container = document.getElementsByClassName('toggle-form');
+        if (event.target != container && event.target.parentNode != container) {
+            container.style.display = 'none';
         }
     });
+    // // function show() {
+    //     $('#project-menu').hide();
+    //     $('#bug-menu').show();
 
+    // }
+    $('#bug-menu-button').on('click', function() {
+        $('#toggle-form-project').css('display', 'none');
+        $('#toggle-form-bug').css('display', 'block');
 
-    $('.toggle-form').dblclick(function(e) {
-        $('.toggle-form').css('display', 'none');
-        $('#createProject').css('display', 'block');
     })
+    $('#project-menu-button').on('click', function() {
+        $('#toggle-form-bug').css('display', 'none');
+        $('#toggle-form-project').css('display', 'block');
+    })
+    // $('#bug-menu-button').on('click', function() {
+    //     $('#project-menu').hide();
+    //     $('#bug-menu').show();
+    // });
+
+
+
+    // let success = "{{Session::get('status')}}";
+    // $(function() {
+    //     var Toast = Swal.mixin({
+    //         toast: true,
+    //         position: 'top-end',
+    //         showConfirmButton: false,
+    //         timer: 1000
+    //     });
+
+    //     if (success) {
+    //         $('.toastrDefaultSuccess').ready(function() {
+    //             toastr.success(success)
+    //         });
+    //     }
+    // });
+
+
+    // $('.toggle-form').dblclick(function(e) {
+    //     $('.toggle-form').css('display', 'none');
+    //     $('#createProject').css('display', 'block');
+    // })
 </script>

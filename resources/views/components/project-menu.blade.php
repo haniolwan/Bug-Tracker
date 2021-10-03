@@ -1,8 +1,11 @@
-<section class="toggle-form">
+<section id="toggle-form-project" class="toggle-form">
     <div class="formwrap" style="overflow: auto;">
         <div class="nav-slider">
             <div class="pt-2">
-                <p class="text-dark h5"><a href=""><i class="fas fa-th m-2 fa-xs"></a></i></i>New Project</p>
+                <p class="text-dark h5"><a class="form-menu"><i class="fas fa-th m-2 fa-xs"></a></i></i>New Project</p>
+                <div style="position:relative;bottom:40px;right:16px;">
+                    <button id="bug-menu-button" type="button" class="btn btn-success float-right">New bug</button>
+                </div>
             </div>
         </div>
         <div class="px-4">
@@ -52,15 +55,15 @@
                         <label>Project access</label>
                         <div class="ml-4">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="access" value="private">
-                                <label class="form-check-label">Private</label>
+                                <input class="form-check-input" id="private" type="radio" name="access" value="private">
+                                <label class="form-check-label" for="private">Private</label>
                                 <br>
                                 <small>Only project users can view and access this project.
                                 </small>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="access" checked value="public">
-                                <label class="form-check-label">Public</label>
+                                <input class="form-check-input" id="public" type="radio" name="access" checked value="public">
+                                <label class="form-check-label" for="public">Public</label>
                                 <br>
                                 <small>Portal users can only view, follow, and comment whereas, project users will have complete access.</small>
                             </div>

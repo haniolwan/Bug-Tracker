@@ -49,7 +49,7 @@ Route::get('/layout', function () {
     return view('components.layout');
 });
 Route::get('/slide', function () {
-    return view('components.slide-form');
+    return view('components.slide-menu');
 });
 
 
