@@ -165,21 +165,7 @@
     //         console.log('Klicked here')
     //     }
     // });
-    var container = document.getElementsByClassName('toggle-form');
 
-    console.log(container.item(0))
-
-    window.addEventListener('mouseup', function(event) {
-        var container = document.getElementsByClassName('toggle-form');
-        if (event.target != container && event.target.parentNode != container) {
-            container.style.display = 'none';
-        }
-    });
-    // // function show() {
-    //     $('#project-menu').hide();
-    //     $('#bug-menu').show();
-
-    // }
     $('#bug-menu-button').on('click', function() {
         $('#toggle-form-project').css('display', 'none');
         $('#toggle-form-bug').css('display', 'block');
@@ -196,21 +182,21 @@
 
 
 
-    // let success = "{{Session::get('status')}}";
-    // $(function() {
-    //     var Toast = Swal.mixin({
-    //         toast: true,
-    //         position: 'top-end',
-    //         showConfirmButton: false,
-    //         timer: 1000
-    //     });
+    let success = "{{Session::get('status')}}";
+    $(function() {
+        var Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 1000
+        });
 
-    //     if (success) {
-    //         $('.toastrDefaultSuccess').ready(function() {
-    //             toastr.success(success)
-    //         });
-    //     }
-    // });
+        if (success) {
+            $('.toastrDefaultSuccess').ready(function() {
+                toastr.success(success)
+            });
+        }
+    });
 
 
     // $('.toggle-form').dblclick(function(e) {

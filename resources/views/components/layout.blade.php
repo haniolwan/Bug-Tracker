@@ -417,7 +417,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         }
 
-        function close_project_modal() {
+        function close_modal() {
             $(".toggle-form").css("display", "none");
             $("#createProject").css("display", "block");
         }
@@ -426,9 +426,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
             open_project_modal();
         });
 
-        $('#close-modal').on('click', function() {
-            close_project_modal()
-        });
+        // $('#close-modal').on('click', function() {
+        //     console.log('Klicked bitch')
+        //     // close_modal()
+
+        // });
+
+
+        $('#close-project-modal').on('click', function() {
+            close_modal();
+        })
+
+        $('#close-bug-modal').on('click', function() {
+            close_modal();
+        })
     </script>
 </body>
 @endauth

@@ -73,7 +73,7 @@
                 </div>
                 <div class="row ml-2 ">
                     <p class="mr-1"><button type="submit" class="btn orange w-100">Add</button></p>
-                    <p class="ml-1"><button id="close-modal" class="btn cancel w-100">cancel</button></p>
+                    <p class="ml-1"><button id="close-project-modal" type="button" class="btn cancel w-100">cancel</button></p>
                 </div>
             </form>
         </div>
