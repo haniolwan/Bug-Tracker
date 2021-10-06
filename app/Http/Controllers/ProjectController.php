@@ -24,29 +24,26 @@ class ProjectController extends Controller
         $credentials = $request->validate(
             [
                 'title' => 'required',
-                'user_id' =>  'required',
+                'user-id' =>  'required',
                 'desc'  => 'required',
                 'access' => 'required'
             ]
         );
 
-        dd(User::find($credentials['owner'])->email);
+        // dd(User::find($credentials['user-id'])->email);
         try {
             $project = Project::create(
                 [
                     'title' => $credentials['title'],
                     'desc' => $credentials['desc'],
-                    'owner' => User::find($credentials['owner'])->email,
+                    'owner' => User::find($credentials['user-id'])->email,
                     'access' => $credentials['access'],
                 ]
             );
         } catch (Throwable $e) {
             dd('An error happend');
         }
-        // if (!$project) {
-        //     dd("Error");
-        // } else {
-        //     dd("Project Created Successfully");
-        // }
+
+        return redirect('allprojects')->with('success');
     }
 }

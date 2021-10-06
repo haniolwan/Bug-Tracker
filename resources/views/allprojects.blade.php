@@ -104,7 +104,7 @@
                             @foreach($projects as $project)
                             <div class="row mb-3">
                                 <div class="col-sm"><span class="dot"></span>
-                                    {{$project->name}} <span class="text-secondary text-sm">in NothingWorks</span></span>
+                                    {{$project->title}} <span class="text-secondary text-sm">{{$project->desc}}</span></span>
                                 </div>
                                 <div class="col-sm">
                                     <div class="avatars">
@@ -123,7 +123,11 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-3 text-secondary">{{$project->updated_at}}</div>
-                                <div class="col-sm-.05 text-secondary"><a class="text-secondary" href=""><i class="fas fa-ellipsis-v"></a></i></div>
+                                <div class="col-sm-.05 text-secondary dropdown">
+                                    <a class="text-secondary " href="">
+                                        <i class="fas fa-ellipsis-v"></a></i>
+                                </div>
+
                             </div>
                             @endforeach
                             <!-- <div id="createProject" class="btn float">
