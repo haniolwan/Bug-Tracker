@@ -19,7 +19,7 @@
                 <!-- Project Owner -->
                 <div class="form-group">
                     <label>Owner</label>
-                    <select name="username" class="form-control" style="width: 100%;">
+                    <select name="user-id" class="form-control" style="width: 100%;">
                         <option selected="selected" value="{{auth()->user()->id}}">{{auth()->user()->name}}</option>
                     </select>
                 </div>

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Project;
 use App\Models\User;
-
+use Throwable;
 
 class ProjectController extends Controller
 {
@@ -17,21 +17,36 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         // return $request->all();
-        $username = User::find($request->username)->name;
+        // return $useremail;
+        // dd($email);
+
+        // $project = Project::create($credentials);
         $credentials = $request->validate(
             [
-                'title' => 'required|unique:projects|max:255',
+                'title' => 'required',
+                'user_id' =>  'required',
                 'desc'  => 'required',
-                'owner' =>   $username,
                 'access' => 'required'
-
             ]
         );
-        $project = Project::create($credentials);
-        if (!$project) {
-            return "Error";
-        } else {
-            return "Project Created Successfully";
+
+        dd(User::find($credentials['owner'])->email);
+        try {
+            $project = Project::create(
+                [
+                    'title' => $credentials['title'],
+                    'desc' => $credentials['desc'],
+                    'owner' => User::find($credentials['owner'])->email,
+                    'access' => $credentials['access'],
+                ]
+            );
+        } catch (Throwable $e) {
+            dd('An error happend');
         }
+        // if (!$project) {
+        //     dd("Error");
+        // } else {
+        //     dd("Project Created Successfully");
+        // }
     }
 }
