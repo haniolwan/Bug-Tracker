@@ -207,7 +207,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         .form-control {
             background-color: transparent;
             border-color: #989c99;
-            color: #fff;
+            /* color: #fff; */
             margin-right: 10px;
         }
 
@@ -248,7 +248,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <button type="button" class="btn btn-light mr-2">Share</button>
-                    <button type="button" class="btn btn-primary">Create</button>
+                    <button id="createProject" type="button" class="btn btn-primary">Create</button>
                 </li>
             </ul>
 
@@ -413,13 +413,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         function open_project_modal() {
             $(".toggle-form").css("display", "block");
-            $("#createProject").css("display", "none");
+            // $("#createProject").css("display", "none");
 
         }
 
         function close_modal() {
             $(".toggle-form").css("display", "none");
-            $("#createProject").css("display", "block");
+            // $("#createProject").css("display", "block");
         }
 
         $('#createProject').on('click', function() {

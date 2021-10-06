@@ -126,9 +126,9 @@
                                 <div class="col-sm-.05 text-secondary"><a class="text-secondary" href=""><i class="fas fa-ellipsis-v"></a></i></div>
                             </div>
                             @endforeach
-                            <div id="createProject" class="btn float">
+                            <!-- <div id="createProject" class="btn float">
                                 <i class="fa fa-plus my-float"></i>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <!-- ./card-body -->
@@ -154,18 +154,6 @@
 
 
 <script>
-    // var container = $('.toggle-form');
-    // console.log(container)
-    // $(document).mouseup(function(e) {
-    //     var container = $('.toggle-form');
-
-    //     // if the target of the click isn't the container nor a descendant of the container
-    //     if (!container.is(e.target) && container.has(e.target).length === 0) {
-    //         container.hide();
-    //         console.log('Klicked here')
-    //     }
-    // });
-
     $('#bug-menu-button').on('click', function() {
         $('#toggle-form-project').css('display', 'none');
         $('#toggle-form-bug').css('display', 'block');

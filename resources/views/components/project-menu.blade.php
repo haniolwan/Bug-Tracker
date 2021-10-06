@@ -19,37 +19,18 @@
                 <!-- Project Owner -->
                 <div class="form-group">
                     <label>Owner</label>
-                    <select class="form-control" style="width: 100%;">
-                        <option selected="selected">Heenoow</option>
+                    <select name="username" class="form-control" style="width: 100%;">
+                        <option selected="selected" value="{{auth()->user()->id}}">{{auth()->user()->name}}</option>
                     </select>
                 </div>
-                <div class="row">
-                    <div class="form-group ml-2">
-                        <label>Start:</label>
-                        <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                            <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate" />
-                            <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
-                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group ml-3">
-                        <label>End:</label>
-                        <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                            <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate" />
-                            <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
-                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /.form group -->
 
+                <!-- Description -->
                 <div class="form-group">
                     <label>Project Overview</label>
                     <textarea name="desc" class="form-control" rows="3" placeholder=""></textarea>
                 </div>
 
+                <!-- Access -->
                 <div class="row">
                     <div class="form-group ml-2">
                         <label>Project access</label>
